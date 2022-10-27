@@ -12,6 +12,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreateMovie from './components/CreateMovie'
+import IndexMovie from './components/IndexMovie'
+import ShowMovie from './components/ShowMovie'
 
 const App = () => {
 
@@ -66,6 +69,27 @@ const App = () => {
             element={
               <RequireAuth user={user}>
                 <ChangePassword msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+		  <Route
+            path='/create'
+            element={
+              <RequireAuth user={user}>
+                <CreateMovie msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+		  <Route
+            path='/movies'
+            element={
+              <RequireAuth user={user}>
+                <IndexMovie msgAlert={msgAlert} user={user} />
+              </RequireAuth>}
+          />
+		  <Route
+            path='/movies/:id'
+            element={
+              <RequireAuth user={user}>
+                <ShowMovie msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
 				</Routes>
